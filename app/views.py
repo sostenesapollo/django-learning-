@@ -2,12 +2,8 @@ from app.models import Todo
 
 from app.serializers import TodoSerializer
 
-from rest_framework import generics
+from rest_framework import generics, viewsets
 
-class TodoListAndCreate(generics.ListCreateAPIView):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
-
-class TodoDetailChangeAndDelete(generics.RetrieveUpdateDestroyAPIView):
+class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
